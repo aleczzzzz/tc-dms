@@ -1,0 +1,9 @@
+{
+  "auth-login": "User logs in",
+  "auth-getsession": "Fetch user session",
+  "auth-reconnect": "User reconnects",
+  "auth-logout": "User logs out",
+
+  "document-upload": "Upload document/s",
+  "document-save": "Save document/s"
+}

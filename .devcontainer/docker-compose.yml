@@ -1,0 +1,29 @@
+version: "3"
+services:
+  projectninung:
+    container_name: projectninung
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    ports:
+      - "3333:3333"
+      - "3000:3000"
+    volumes:
+      - ../.devcontainer:/app/.devcontainer
+      - ../frontend:/app/frontend
+      - ../backend:/app/backend
+      - /app/frontend/node_modules
+      - /app/backend/node_modules
+    depends_on:
+      - postgresql
+  postgresql:
+    container_name: postgresql
+    image: postgres:13.2
+    ports: 
+      - "5432:5432"
+    environment:  
+      POSTGRES_PASSWORD: admin
+      POSTGRES_USER: admin
+      POSTGRES_DB: file_management
+    volumes:
+      - ../.devcontainer/pgdata:/var/lib/postgresql/data 

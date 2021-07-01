@@ -1,0 +1,30 @@
+[
+  {
+    "name": "File Name",
+    "key": "original_file_name"
+  },
+  {
+    "name": "Reference Number",
+    "key": "reference_number"
+  },
+  {
+    "name": "Subject Article",
+    "key": "subject_article"
+  },
+  {
+    "name": "AHTN Code",
+    "key": "ahtn_code"
+  },
+  {
+    "name": "Sector",
+    "key": "sector"
+  },
+  {
+    "name": "Chapter",
+    "key": "chapter"
+  },
+  {
+    "name": "Product Type",
+    "key": "product_type"
+  }
+]

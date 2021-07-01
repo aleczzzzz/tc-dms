@@ -1,0 +1,5 @@
+{
+  "required": "[${field}] is required",
+  "string": "[${field}] must be a string",
+  "matchRegex": "[${field}] did not pass regex expression"
+}

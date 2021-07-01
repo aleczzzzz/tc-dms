@@ -1,0 +1,30 @@
+{
+    "name": "tc-dms",
+    "scripts": {
+        "dev": "npm run assets && nuxt",
+        "build": "npm run assets && nuxt build",
+        "generate": "npm run assets && nuxt generate",
+        "start": "npm run assets && nuxt start",
+        "assets": "webpack --config webpack.static.js --mode development"
+    },
+    "dependencies": {
+        "@nuxtjs/axios": "^5.13.1",
+        "await-to-js": "^2.1.1",
+        "capital-case": "^1.0.4",
+        "change-case": "^4.1.2",
+        "filesize": "^6.3.0",
+        "moment": "^2.29.1",
+        "no-case": "^3.0.4",
+        "nuxt": "^2.14.7",
+        "resumablejs": "^1.1.0",
+        "vuelidate": "^0.7.6"
+    },
+    "devDependencies": {
+        "clean-css": "^4.2.3",
+        "glob": "^7.1.6",
+        "remove-files-webpack-plugin": "^1.4.4",
+        "terser": "^5.3.8",
+        "webpack-cli": "^4.1.0",
+        "webpack-merge-and-include-globally": "^2.1.26"
+    }
+}

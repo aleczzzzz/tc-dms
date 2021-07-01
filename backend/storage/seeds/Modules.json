@@ -1,0 +1,49 @@
+[
+  {
+    "module_code": 100,
+    "module": "Login",
+    "platform": "backend"
+  },
+  {
+    "module_code": 101,
+    "module": "Log Out",
+    "platform": "backend"
+  },
+  {
+    "module_code": 102,
+    "module": "Check Session",
+    "platform": "backend"
+  },
+  {
+    "module_code": 103,
+    "module": "Reconnect",
+    "platform": "backend"
+  },
+
+  {
+    "module_code": 200,
+    "module": "Document Management",
+    "platform": "frontend"
+  },
+  {
+    "module_code": 201,
+    "module": "Upload Document",
+    "platform": "frontend"
+  },
+  {
+    "module_code": 202,
+    "module": "Upload Document",
+    "platform": "backend"
+  },
+  {
+    "module_code": 203,
+    "module": "Save Document",
+    "platform": "backend"
+  },
+  
+  {
+    "module_code": 300,
+    "module": "Profile",
+    "platform": "frontend"
+  }
+]
