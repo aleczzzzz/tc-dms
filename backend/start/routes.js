@@ -16,6 +16,17 @@ Route.group(() => {
   //Document Collection
   Route.post("document/upload", "DocumentController.upload").middleware("auth");
   Route.post("document/save", "DocumentController.save").middleware("auth");
+  Route.get(
+    "document/getDocumentKeys",
+    "DocumentController.getDocumentKeys"
+  ).middleware("auth");
+  Route.post(
+    "document/getDocuments",
+    "DocumentController.getDocuments"
+  ).middleware("auth");
+  Route.post("document/getDocument", "DocumentController.getDocument")
+    .middleware("auth")
+    .validator("Document/getDocument");
 })
   .prefix("api/v1")
   .middleware(["hits", "camelCaseKeys"]);

@@ -52,6 +52,30 @@
     "role_id": 1,
     "module_code": 203
   },
+  {
+    "role_id": 1,
+    "module_code": 204
+  },
+  {
+    "role_id": 1,
+    "module_code": 205
+  },
+  {
+    "role_id": 1,
+    "module_code": 206
+  },
+  {
+    "role_id": 2,
+    "module_code": 204
+  },
+  {
+    "role_id": 2,
+    "module_code": 205
+  },
+  {
+    "role_id": 2,
+    "module_code": 206
+  },
 
   {
     "role_id": 1,

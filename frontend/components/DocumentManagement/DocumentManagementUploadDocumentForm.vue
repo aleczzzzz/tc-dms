@@ -41,16 +41,16 @@
       <div class="col-md-6">
         <div class="form-group">
           <label class="form-control-label">RULLING TYPE</label>
-          <input
-            type="text"
-            :class="file.rullingType.$error ? 'is-invalid' : ''"
-            class="form-control"
+          <select
+            :ref="`form-select-${formKey}`"
+            data-style="btn-outline-primary"
+            data-size="10"
+            data-width="100%"
             v-model="file.rullingType.$model"
-          />
-          <FormErrorMessage
-            :vData="file.rullingType"
-            v-if="file.rullingType.$error"
-          />
+          >
+            <option value="AR">AR</option>
+            <option value="DR">DR</option>
+          </select>
         </div>
       </div>
     </div>
@@ -210,8 +210,11 @@
           <label class="form-control-label">RECORDS DATE</label>
           <input
             type="text"
-            :class="file.recordsDate.$error ? 'is-invalid' : ''"
-            class="form-control form-date-picker"
+            :class="{
+              [`form-datepicker-${formKey}`]: true,
+              'is-invalid': file.recordsDate.$error,
+            }"
+            class="form-control"
             data-name="recordsDate"
             :value="file.recordsDate.$model"
             readonly="true"
@@ -228,8 +231,11 @@
           <label class="form-control-label">CHAIR DATE</label>
           <input
             type="text"
-            :class="file.chairDate.$error ? 'is-invalid' : ''"
-            class="form-control form-date-picker"
+            :class="{
+              [`form-datepicker-${formKey}`]: true,
+              'is-invalid': file.chairDate.$error,
+            }"
+            class="form-control"
             data-name="chairDate"
             :value="file.chairDate.$model"
             readonly="true"
@@ -248,8 +254,11 @@
           <label class="form-control-label">ENDORSE DATE</label>
           <input
             type="text"
-            :class="file.endorseDate.$error ? 'is-invalid' : ''"
-            class="form-control form-date-picker"
+            :class="{
+              [`form-datepicker-${formKey}`]: true,
+              'is-invalid': file.endorseDate.$error,
+            }"
+            class="form-control"
             data-name="endorseDate"
             :value="file.endorseDate.$model"
             readonly="true"
@@ -266,8 +275,11 @@
           <label class="form-control-label">REQUEST DATE</label>
           <input
             type="text"
-            :class="file.requestDate.$error ? 'is-invalid' : ''"
-            class="form-control form-date-picker"
+            :class="{
+              [`form-datepicker-${formKey}`]: true,
+              'is-invalid': file.requestDate.$error,
+            }"
+            class="form-control"
             data-name="requestDate"
             :value="file.requestDate.$model"
             readonly="true"
@@ -286,8 +298,11 @@
           <label class="form-control-label">NOTICE DATE</label>
           <input
             type="text"
-            :class="file.noticeDate.$error ? 'is-invalid' : ''"
-            class="form-control form-date-picker"
+            :class="{
+              [`form-datepicker-${formKey}`]: true,
+              'is-invalid': file.noticeDate.$error,
+            }"
+            class="form-control"
             data-name="noticeDate"
             :value="file.noticeDate.$model"
             readonly="true"
@@ -304,8 +319,11 @@
           <label class="form-control-label">DRAFT DATE</label>
           <input
             type="text"
-            :class="file.draftDate.$error ? 'is-invalid' : ''"
-            class="form-control form-date-picker"
+            :class="{
+              [`form-datepicker-${formKey}`]: true,
+              'is-invalid': file.draftDate.$error,
+            }"
+            class="form-control"
             data-name="draftDate"
             :value="file.draftDate.$model"
             readonly="true"
@@ -324,8 +342,11 @@
           <label class="form-control-label">FINALIZE DATE</label>
           <input
             type="text"
-            :class="file.finalizeDate.$error ? 'is-invalid' : ''"
-            class="form-control form-date-picker"
+            :class="{
+              [`form-datepicker-${formKey}`]: true,
+              'is-invalid': file.finalizeDate.$error,
+            }"
+            class="form-control"
             data-name="finalizeDate"
             :value="file.finalizeDate.$model"
             readonly="true"
@@ -342,8 +363,11 @@
           <label class="form-control-label">ISSUE DATE</label>
           <input
             type="text"
-            :class="file.issueDate.$error ? 'is-invalid' : ''"
-            class="form-control form-date-picker"
+            :class="{
+              [`form-datepicker-${formKey}`]: true,
+              'is-invalid': file.issueDate.$error,
+            }"
+            class="form-control"
             data-name="issueDate"
             :value="file.issueDate.$model"
             readonly="true"
@@ -364,8 +388,11 @@
           >
           <input
             type="text"
-            :class="file.additionalInfoRequestDate.$error ? 'is-invalid' : ''"
-            class="form-control form-date-picker"
+            :class="{
+              [`form-datepicker-${formKey}`]: true,
+              'is-invalid': file.additionalInfoRequestDate.$error,
+            }"
+            class="form-control"
             data-name="additionalInfoRequestDate"
             :value="file.additionalInfoRequestDate.$model"
             readonly="true"
@@ -384,10 +411,11 @@
           >
           <input
             type="text"
-            :class="
-              file.additionalInfoSubmissionDate.$error ? 'is-invalid' : ''
-            "
-            class="form-control form-date-picker"
+            :class="{
+              [`form-datepicker-${formKey}`]: true,
+              'is-invalid': file.additionalInfoSubmissionDate.$error,
+            }"
+            class="form-control"
             data-name="additionalInfoSubmissionDate"
             :value="file.additionalInfoSubmissionDate.$model"
             readonly="true"
@@ -406,8 +434,11 @@
           <label class="form-control-label">DROP DATE</label>
           <input
             type="text"
-            :class="file.dropDate.$error ? 'is-invalid' : ''"
-            class="form-control form-date-picker"
+            :class="{
+              [`form-datepicker-${formKey}`]: true,
+              'is-invalid': file.dropDate.$error,
+            }"
+            class="form-control"
             data-name="dropDate"
             :value="file.dropDate.$model"
             readonly="true"
@@ -440,21 +471,12 @@
 import filesize from "filesize";
 
 export default {
-  props: ["file", "name", "size"],
+  props: ["file", "name", "size", "formKey"],
 
   data() {
     return {
       datepicker: null,
     };
-  },
-
-  watch: {
-    file: {
-      deep: true,
-      handler() {
-        console.log(this.validation);
-      },
-    },
   },
 
   methods: {
@@ -465,7 +487,9 @@ export default {
 
   mounted() {
     const vm = this;
-    this.datepicker = $(".form-date-picker")
+    $(this.$refs[`form-select-${this.formKey}`]).selectpicker();
+
+    this.datepicker = $(`.form-datepicker-${this.formKey}`)
       .datepicker({
         language: "en",
         dateFormat: "MM d, yyyy",
@@ -476,7 +500,6 @@ export default {
         onSelect(formattedDate, date, inst) {
           const key = $(inst.$el).data("name");
           vm.file[key].$model = formattedDate;
-          // vm.file[key].$touch();
         },
       })
       .data("datepicker");

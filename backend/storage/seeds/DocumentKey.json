@@ -1,30 +1,98 @@
 [
   {
-    "name": "File Name",
-    "key": "original_file_name"
+    "name": "tcc number",
+    "key": "tcc_number"
   },
   {
-    "name": "Reference Number",
-    "key": "reference_number"
+    "name": "rulling type",
+    "key": "rulling_type"
   },
   {
-    "name": "Subject Article",
-    "key": "subject_article"
+    "name": "name of article",
+    "key": "name_of_article"
   },
   {
-    "name": "AHTN Code",
+    "name": "ahtn code",
     "key": "ahtn_code"
   },
   {
-    "name": "Sector",
-    "key": "sector"
+    "name": "content",
+    "key": "content"
   },
   {
-    "name": "Chapter",
-    "key": "chapter"
+    "name": "applicant company name",
+    "key": "applicant_company_name"
   },
   {
-    "name": "Product Type",
-    "key": "product_type"
+    "name": "applicant name",
+    "key": "applicant_name"
+  },
+  {
+    "name": "applicant email",
+    "key": "applicant_email"
+  },
+  {
+    "name": "applicant number",
+    "key": "applicant_number"
+  },
+  {
+    "name": "assigned to",
+    "key": "assigned_to"
+  },
+  {
+    "name": "qrt",
+    "key": "qrt"
+  },
+  {
+    "name": "records date",
+    "key": "records_date"
+  },
+  {
+    "name": "chair date",
+    "key": "chair_date"
+  },
+  {
+    "name": "endorse date",
+    "key": "endorse_date"
+  },
+  {
+    "name": "request date",
+    "key": "request_date"
+  },
+  {
+    "name": "notice date",
+    "key": "notice_date"
+  },
+  {
+    "name": "draft date",
+    "key": "draft_date"
+  },
+  {
+    "name": "finalize date",
+    "key": "finalize_date"
+  },
+  {
+    "name": "issue date",
+    "key": "issue_date"
+  },
+  {
+    "name": "additional information request date",
+    "key": "additional_info_request_date"
+  },
+  {
+    "name": "additional information submission date",
+    "key": "additional_info_submission_date"
+  },
+  {
+    "name": "drop date",
+    "key": "drop_date"
+  },
+  {
+    "name": "remarks",
+    "key": "remarks"
+  },
+  {
+    "name": "file name",
+    "key": "original_file_name"
   }
 ]

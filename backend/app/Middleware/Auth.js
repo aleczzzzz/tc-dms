@@ -9,7 +9,7 @@ class Auth {
 
     if (token && (await isTokenValid(token))) {
       const user = await getUserInstance(token);
-      ctx.$session = await getSession(user, token);
+      ctx.$session = await getSession(user, token, "backend");
       ctx.user = user;
       await next();
     } else

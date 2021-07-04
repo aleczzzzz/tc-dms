@@ -107,7 +107,7 @@ class DocumentController {
         ];
 
         out[snakeCase(key)] = castDatesRack.includes(key)
-          ? moment(request.input(key), "MMMM D, YYYY").format("YYYY-MM-DD")
+          ? moment(request.input(key), "MMMM D, YYYY").toISOString()
           : request.input(key);
 
         return out;
@@ -132,7 +132,51 @@ class DocumentController {
 
     return response.status(200).send({
       message: "Successfully fetched document key/s",
-      data: keys.toJSON(),
+      data: keys.toJSON().map((k) => ({ ...k, name: k.name.toUpperCase() })),
+    });
+  }
+
+  async getDocuments({ request, response }) {
+    const { search, key, limit, page } = request.all();
+    let data;
+    let q = Document.query();
+
+    if (search && search.length > 0) {
+      const s = search
+        .split(" ")
+        .filter((s) => s.trim().length > 0)
+        .join("|");
+
+      q.where(key, "~", s);
+    }
+
+    if (limit && page) data = (await q.paginate(page, limit)).toJSON();
+    else {
+      limit && q.limit(limit);
+
+      data = { data: (await q.fetch()).toJSON() };
+    }
+
+    const status = data.data.length > 0 ? 200 : 404;
+    const message =
+      data.data.length > 0 ? "Successfully fetched data" : "No data found.";
+
+    return response.status(status).send({
+      message,
+      data: data.data || [],
+    });
+  }
+
+  async getDocument({ request, response }) {
+    const { id } = request.all();
+    let document = (await Document.find(id)).toJSON();
+    const stats = await fs.stat(
+      Helpers.appRoot(`storage/document/${document.directory_file_name}`)
+    );
+    document.size = stats.size;
+    return response.status(200).send({
+      message: "Successfully fetched document.",
+      data: document,
     });
   }
 }

@@ -12,6 +12,7 @@ class Document extends Model {
       documentInstance.finalize_day_count = 4;
       documentInstance.additional_info_day_count = 5;
     });
+    this.addTrait("CastDates");
   }
 }
 

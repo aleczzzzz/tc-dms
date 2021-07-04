@@ -32,7 +32,10 @@
                   class="btn btn-success mb-4"
                   @click="uploadDocument"
                   :disabled="
-                    isUploading || !isChunkComplete || files.length == 0
+                    $v.$invalid ||
+                      isUploading ||
+                      !isChunkComplete ||
+                      files.length == 0
                   "
                 >
                   UPLOAD FILES
@@ -67,7 +70,10 @@
                         :key="key"
                       >
                         <div
-                          :class="{ 'bg-red': file.$invalid, 'bg-green': !file.$invalid }"
+                          :class="{
+                            'bg-red': file.$invalid,
+                            'bg-green': !file.$invalid,
+                          }"
                           class="card-header"
                           data-toggle="collapse"
                           :data-target="`#collapse${key}`"
@@ -97,6 +103,7 @@
                               :file="file"
                               :name="files[key].file.name"
                               :size="files[key].file.size"
+                              :formKey="key"
                               :key="`UDF-${key}`"
                             />
                           </div>
@@ -276,7 +283,7 @@ export default {
       return {
         file,
         tccNumber: "",
-        rullingType: "",
+        rullingType: "DR",
         nameOfArticle: "",
         ahtnCode: "",
         content: "",
@@ -383,6 +390,18 @@ export default {
   },
 
   created() {
+    $(document).on("shown.bs.collapse", ".collapse", function() {
+      const parent = $(this).parent();
+      const index = $(parent).index();
+
+      $(".dropzone").animate(
+        {
+          scrollTop: 0 + index * 70,
+        },
+        100
+      );
+    });
+
     const opts = {
       target: `${this.$config.apiURL}/document/upload`,
       chunkSize: 1 * 1024 * 1024,

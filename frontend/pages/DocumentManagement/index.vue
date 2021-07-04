@@ -15,6 +15,7 @@
                 </button>
               </div>
             </div>
+            <DocumentManagementSearchDocument />
           </div>
         </div>
       </div>

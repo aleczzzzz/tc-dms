@@ -160,4 +160,9 @@ export default {
 ::-webkit-scrollbar-thumb:hover {
   background: #bbb;
 }
+
+.table-responsive table th {
+  font-weight: bold;
+  font-size: 13px;
+}
 </style>

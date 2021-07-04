@@ -40,7 +40,22 @@
     "module": "Save Document",
     "platform": "backend"
   },
-  
+  {
+    "module_code": 204,
+    "module": "Document",
+    "platform": "frontend"
+  },
+  {
+    "module_code": 205,
+    "module": "Get Document",
+    "platform": "backend"
+  },
+  {
+    "module_code": 206,
+    "module": "Get Documents",
+    "platform": "backend"
+  },
+
   {
     "module_code": 300,
     "module": "Profile",
