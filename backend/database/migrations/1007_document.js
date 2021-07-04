@@ -6,7 +6,7 @@ class HitsSchema extends Schema {
   up() {
     this.create("documents", (table) => {
       table.increments();
-      table.string("tcc_number", 5).notNullable().index();
+      table.string("tcc_number", 255).notNullable().index();
       table.string("rulling_type", 2).notNullable().index();
       table.string("name_of_article", 255).notNullable().index();
       table.string("ahtn_code", 255).notNullable().index();
