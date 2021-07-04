@@ -1,7 +1,7 @@
 PROJECT_PATH="/var/docker/dms/frontend"
 PROJECT_NAME="dms_frontend"
 
-cd $BOT_PATH
+cd $PROJECT_PATH
 docker rm -f $PROJECT_NAME
 docker build -t $PROJECT_NAME .
 docker run -d \
