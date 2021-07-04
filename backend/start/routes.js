@@ -27,6 +27,10 @@ Route.group(() => {
   Route.post("document/getDocument", "DocumentController.getDocument")
     .middleware("auth")
     .validator("Document/getDocument");
+  Route.post(
+    "document/downloadFile",
+    "DocumentController.downloadFile"
+  ).middleware("auth");
 })
   .prefix("api/v1")
   .middleware(["hits", "camelCaseKeys"]);

@@ -8,5 +8,6 @@
   "document-save": "Save document/s",
   "document-getdocumentkeys": "Get document keys",
   "document-getdocuments": "Get documents",
-  "document-getdocument": "Get document"
+  "document-getdocument": "Get document",
+  "document-downloadfile": "Download file"
 }

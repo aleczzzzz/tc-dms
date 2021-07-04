@@ -179,6 +179,18 @@ class DocumentController {
       data: document,
     });
   }
+
+  async downloadFile({ request, response }) {
+    const { id } = request.all();
+    let document = (await Document.find(id)).toJSON();
+    const file = await Drive.get(`document/${document.directory_file_name}`);
+    const blob = file.toString("base64");
+    
+    return response.status(200).send({
+      message: "Successfully fetched file.",
+      data: blob,
+    });
+  }
 }
 
 module.exports = DocumentController;

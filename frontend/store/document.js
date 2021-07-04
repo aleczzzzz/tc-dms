@@ -36,4 +36,14 @@ export const actions = {
 
     return $data;
   },
+
+  async downloadFile(ctx, payload) {
+    const [err, data] = await to(
+      this.$axios.post("/document/downloadFile", payload)
+    );
+
+    const $data = this.$serializer.cleanResponse(err ? err.response : data);
+
+    return $data;
+  },
 };
