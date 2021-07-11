@@ -33,7 +33,7 @@
             >
               <button
                 type="button"
-                class="btn btn-success"
+                class="btn btn-info"
                 @click="downloadFile"
               >
                 DOWNLOAD FILE
@@ -67,7 +67,7 @@
 
               <button
                 type="button"
-                class="btn btn-success float-right"
+                class="btn btn-info float-right"
                 @click="updateFile"
               >
                 UPDATE FILE
