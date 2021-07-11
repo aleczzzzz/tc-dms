@@ -1,7 +1,5 @@
 FROM node:14.16.1
 
-ENV TZ Asia/Manila
-
 WORKDIR /app
 
 COPY .devcontainer/fonts /root/.local/share/fonts

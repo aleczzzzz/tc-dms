@@ -3,11 +3,8 @@ import Vue from "vue";
 const { Vuelidate } = require("vuelidate");
 Vue.use(Vuelidate);
 
-// const Paginate = require("vuejs-paginate");
-// Vue.component("Paginate", Paginate);
-
-// const Draggable = require("vuedraggable");
-// Vue.component("Draggable", Draggable);
+const Paginate = require("vuejs-paginate");
+Vue.component("Paginate", Paginate);
 
 export default async function({ store }) {
   await store.dispatch("auth/getSession");

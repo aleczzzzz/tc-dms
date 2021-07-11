@@ -6,6 +6,7 @@ package-lock.json
 tmp
 
 #storage
+storage
 !storage/middleware
 !storage/seeds
 !storage/validator

@@ -101,8 +101,7 @@
                           <div class="card-body">
                             <DocumentManagementUploadDocumentForm
                               :file="file"
-                              :name="files[key].file.name"
-                              :size="files[key].file.size"
+                              :fileActual="files[key]"
                               :formKey="key"
                               :key="`UDF-${key}`"
                             />
@@ -149,13 +148,7 @@ export default {
         tccNumber: {
           required,
         },
-        rullingType: {
-          required,
-        },
         nameOfArticle: {
-          required,
-        },
-        ahtnCode: {
           required,
         },
         content: {
@@ -177,39 +170,6 @@ export default {
           required,
         },
         qrt: {
-          required,
-        },
-        recordsDate: {
-          required,
-        },
-        chairDate: {
-          required,
-        },
-        endorseDate: {
-          required,
-        },
-        requestDate: {
-          required,
-        },
-        noticeDate: {
-          required,
-        },
-        draftDate: {
-          required,
-        },
-        finalizeDate: {
-          required,
-        },
-        issueDate: {
-          required,
-        },
-        additionalInfoRequestDate: {
-          required,
-        },
-        additionalInfoSubmissionDate: {
-          required,
-        },
-        dropDate: {
           required,
         },
         remarks: {
@@ -283,7 +243,7 @@ export default {
       return {
         file,
         tccNumber: "",
-        rullingType: "DR",
+        rulingType: "DR",
         nameOfArticle: "",
         ahtnCode: "",
         content: "",
@@ -348,7 +308,9 @@ export default {
                                 <div class="progress-bar bg-success" style="width: 0%; color: #000; font-weight: bold;">0</div>
                                </div>`);
 
-              vi.resumableJSInstance.upload();
+              vi.$store.dispatch("auth/reconnect").then(({ status }) => {
+                status == 200 && vi.resumableJSInstance.upload();
+              });
               return false;
             },
           },

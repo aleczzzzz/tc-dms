@@ -6,6 +6,7 @@ const Document = use("App/Models/Document");
 const DocumentKey = use("App/Models/DocumentKey");
 const { snakeCase } = use("change-case");
 const moment = use("moment");
+const Fetch = use("Library/Fetch");
 
 class DocumentController {
   async upload({ request, response }) {
@@ -27,7 +28,7 @@ class DocumentController {
   async save({ request, response }) {
     const {
       tccNumber,
-      rullingType,
+      rulingType,
       nameOfArticle,
       ahtnCode,
       content,
@@ -69,7 +70,7 @@ class DocumentController {
 
     const merge = Object.keys({
       tccNumber,
-      rullingType,
+      rulingType,
       nameOfArticle,
       ahtnCode,
       content,
@@ -94,16 +95,17 @@ class DocumentController {
     }).reduce(
       (out, key) => {
         const castDatesRack = [
-          recordsDate,
-          chairDate,
-          endorseDate,
-          requestDate,
-          noticeDate,
-          draftDate,
-          finalizeDate,
-          issueDate,
-          additionalInfoRequestDate,
-          additionalInfoSubmissionDate,
+          "recordsDate",
+          "chairDate",
+          "endorseDate",
+          "requestDate",
+          "noticeDate",
+          "draftDate",
+          "finalizeDate",
+          "issueDate",
+          "additionalInfoRequestDate",
+          "additionalInfoSubmissionDate",
+          "dropDate",
         ];
 
         out[snakeCase(key)] = castDatesRack.includes(key)
@@ -127,6 +129,91 @@ class DocumentController {
       .send({ message: "Successfully saved document" });
   }
 
+  async update({ request, response }) {
+    const {
+      tccNumber,
+      rulingType,
+      nameOfArticle,
+      ahtnCode,
+      content,
+      applicantCompanyName,
+      applicantName,
+      applicantEmail,
+      applicantNumber,
+      assignedTo,
+      qrt,
+      recordsDate,
+      chairDate,
+      endorseDate,
+      requestDate,
+      noticeDate,
+      draftDate,
+      finalizeDate,
+      issueDate,
+      additionalInfoRequestDate,
+      additionalInfoSubmissionDate,
+      dropDate,
+      remarks,
+      id,
+    } = request.input("document");
+
+    const document = await Document.find(id);
+
+    const merge = Object.keys({
+      tccNumber,
+      rulingType,
+      nameOfArticle,
+      ahtnCode,
+      content,
+      applicantCompanyName,
+      applicantName,
+      applicantEmail,
+      applicantNumber,
+      assignedTo,
+      qrt,
+      recordsDate,
+      chairDate,
+      endorseDate,
+      requestDate,
+      noticeDate,
+      draftDate,
+      finalizeDate,
+      issueDate,
+      additionalInfoRequestDate,
+      additionalInfoSubmissionDate,
+      dropDate,
+      remarks,
+    }).reduce((out, key) => {
+      const castDatesRack = [
+        "recordsDate",
+        "chairDate",
+        "endorseDate",
+        "requestDate",
+        "noticeDate",
+        "draftDate",
+        "finalizeDate",
+        "issueDate",
+        "additionalInfoRequestDate",
+        "additionalInfoSubmissionDate",
+        "dropDate",
+      ];
+
+      out[snakeCase(key)] = castDatesRack.includes(key)
+        ? moment(request.input("document")[key], "MMMM D, YYYY").toISOString()
+        : request.input("document")[key];
+
+      return out;
+    }, {});
+
+    document.merge(merge);
+
+    await document.save();
+
+    return response
+      .status(200)
+      .send({ message: "Successfully updated document" });
+  }
+
   async getDocumentKeys({ response }) {
     const keys = await DocumentKey.all();
 
@@ -138,33 +225,41 @@ class DocumentController {
 
   async getDocuments({ request, response }) {
     const { search, key, limit, page } = request.all();
-    let data;
-    let q = Document.query();
+    let q = Document.query().orderBy("id", "desc");
 
-    if (search && search.length > 0) {
-      const s = search
-        .split(" ")
-        .filter((s) => s.trim().length > 0)
-        .join("|");
+    const castDatesRack = [
+      "records_date",
+      "chair_date",
+      "endorse_date",
+      "request_date",
+      "notice_date",
+      "draft_date",
+      "finalize_date",
+      "issue_date",
+      "additional_info_request_date",
+      "additional_info_submission_date",
+      "drop_date",
+    ];
 
-      q.where(key, "~", s);
+    let s;
+    let d;
+
+    const FetchInstance = new Fetch(q);
+    if (castDatesRack.includes(key)) {
+      q.where(key, moment(search, "MMMM D, YYYY").format("YYYY-MM-DD"));
+      const { status, ...data } = await FetchInstance.get(limit, page);
+      s = status;
+      d = data;
+    } else {
+      const { status, ...data } = await FetchInstance.search([key], search).get(
+        limit,
+        page
+      );
+      s = status;
+      d = data;
     }
 
-    if (limit && page) data = (await q.paginate(page, limit)).toJSON();
-    else {
-      limit && q.limit(limit);
-
-      data = { data: (await q.fetch()).toJSON() };
-    }
-
-    const status = data.data.length > 0 ? 200 : 404;
-    const message =
-      data.data.length > 0 ? "Successfully fetched data" : "No data found.";
-
-    return response.status(status).send({
-      message,
-      data: data.data || [],
-    });
+    return response.status(s).send(d);
   }
 
   async getDocument({ request, response }) {
@@ -174,6 +269,29 @@ class DocumentController {
       Helpers.appRoot(`storage/document/${document.directory_file_name}`)
     );
     document.size = stats.size;
+
+    const castDatesRack = [
+      "records_date",
+      "chair_date",
+      "endorse_date",
+      "request_date",
+      "notice_date",
+      "draft_date",
+      "finalize_date",
+      "issue_date",
+      "additional_info_request_date",
+      "additional_info_submission_date",
+      "drop_date",
+    ];
+
+    Object.keys(document).forEach((k) => {
+      if (castDatesRack.includes(k)) {
+        document[k] = document[k]
+          ? moment(document[k]).format("MMMM D, YYYY")
+          : document[k];
+      }
+    });
+
     return response.status(200).send({
       message: "Successfully fetched document.",
       data: document,
@@ -185,10 +303,33 @@ class DocumentController {
     let document = (await Document.find(id)).toJSON();
     const file = await Drive.get(`document/${document.directory_file_name}`);
     const blob = file.toString("base64");
-    
+
     return response.status(200).send({
       message: "Successfully fetched file.",
       data: blob,
+    });
+  }
+
+  async updateFileName({ request, response }) {
+    const { id, filename } = request.all();
+    const document = await Document.find(id);
+    document.merge({ original_file_name: filename });
+
+    const files = await fs.readdir(Helpers.appRoot("storage/chunk/document"));
+    const uid = document.directory_file_name.split(".")[0];
+    const chunks = files.filter((file) => file.includes(uid));
+    const parts = await Promise.all(
+      chunks.map(async (chunk) => await Drive.get(`chunk/document/${chunk}`))
+    );
+
+    await Drive.put(`document/${uid}.pdf`, Buffer.concat(parts));
+    await Promise.all(
+      chunks.map(async (chunk) => await Drive.delete(`chunk/document/${chunk}`))
+    );
+    await document.save();
+
+    return response.status(200).send({
+      message: "Successfully updated filename.",
     });
   }
 }

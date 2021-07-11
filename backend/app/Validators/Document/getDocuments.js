@@ -16,6 +16,28 @@ class DocumentGetDocuments {
     return true;
   }
 
+  get rules() {
+    return {
+      search: "string",
+      key: "string",
+      limit: "integer",
+      page: "integer",
+    };
+  }
+
+  get messages() {
+    return generateValidationMessage(this.rules);
+  }
+
+  get sanitizationRules() {
+    return {
+      search: "trim",
+      key: "trim",
+      limit: "trim|toInt",
+      page: "trim|toInt",
+    };
+  }
+
   async fails(err) {
     const errorMessage = err.map(({ message }) => message);
 

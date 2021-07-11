@@ -8,6 +8,7 @@ class DocumentKey extends Schema {
       table.increments();
       table.string("name", 255).notNullable().index();
       table.string("key", 255).notNullable().index();
+      table.string("type", 255).notNullable().index();
     });
   }
 

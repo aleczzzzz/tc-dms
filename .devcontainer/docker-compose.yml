@@ -8,6 +8,8 @@ services:
     ports:
       - "3333:3333"
       - "3000:3000"
+    environment:
+      TZ: Asia/Manila
     volumes:
       - ../.devcontainer:/app/.devcontainer
       - ../frontend:/app/frontend
@@ -17,13 +19,15 @@ services:
     depends_on:
       - postgresql
   postgresql:
-    container_name: postgresql
+    container_name: postgresqlcsd
     image: postgres:13.2
-    ports: 
+    ports:
       - "5432:5432"
-    environment:  
-      POSTGRES_PASSWORD: admin
-      POSTGRES_USER: admin
-      POSTGRES_DB: file_management
+    environment:
+      POSTGRES_PASSWORD: csdpassword
+      POSTGRES_USER: csdadmin
+      POSTGRES_DB: csd
+      TZ: Asia/Manila
+      PGTZ: Asia/Manila
     volumes:
-      - ../.devcontainer/pgdata:/var/lib/postgresql/data 
+      - ../.devcontainer/pgdata:/var/lib/postgresql/data

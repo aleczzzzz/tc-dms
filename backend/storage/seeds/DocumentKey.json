@@ -1,98 +1,122 @@
 [
   {
     "name": "tcc number",
-    "key": "tcc_number"
+    "key": "tcc_number",
+    "type": "string"
   },
   {
-    "name": "rulling type",
-    "key": "rulling_type"
+    "name": "ruling type",
+    "key": "ruling_type",
+    "type": "string"
   },
   {
     "name": "name of article",
-    "key": "name_of_article"
+    "key": "name_of_article",
+    "type": "string"
   },
   {
     "name": "ahtn code",
-    "key": "ahtn_code"
+    "key": "ahtn_code",
+    "type": "string"
   },
   {
     "name": "content",
-    "key": "content"
+    "key": "content",
+    "type": "string"
   },
   {
     "name": "applicant company name",
-    "key": "applicant_company_name"
+    "key": "applicant_company_name",
+    "type": "string"
   },
   {
     "name": "applicant name",
-    "key": "applicant_name"
+    "key": "applicant_name",
+    "type": "string"
   },
   {
     "name": "applicant email",
-    "key": "applicant_email"
+    "key": "applicant_email",
+    "type": "string"
   },
   {
     "name": "applicant number",
-    "key": "applicant_number"
+    "key": "applicant_number",
+    "type": "string"
   },
   {
     "name": "assigned to",
-    "key": "assigned_to"
+    "key": "assigned_to",
+    "type": "string"
   },
   {
     "name": "qrt",
-    "key": "qrt"
+    "key": "qrt",
+    "type": "string"
   },
   {
     "name": "records date",
-    "key": "records_date"
+    "key": "records_date",
+    "type": "date"
   },
   {
     "name": "chair date",
-    "key": "chair_date"
+    "key": "chair_date",
+    "type": "date"
   },
   {
     "name": "endorse date",
-    "key": "endorse_date"
+    "key": "endorse_date",
+    "type": "date"
   },
   {
     "name": "request date",
-    "key": "request_date"
+    "key": "request_date",
+    "type": "date"
   },
   {
     "name": "notice date",
-    "key": "notice_date"
+    "key": "notice_date",
+    "type": "date"
   },
   {
     "name": "draft date",
-    "key": "draft_date"
+    "key": "draft_date",
+    "type": "date"
   },
   {
     "name": "finalize date",
-    "key": "finalize_date"
+    "key": "finalize_date",
+    "type": "date"
   },
   {
     "name": "issue date",
-    "key": "issue_date"
+    "key": "issue_date",
+    "type": "date"
   },
   {
     "name": "additional information request date",
-    "key": "additional_info_request_date"
+    "key": "additional_info_request_date",
+    "type": "date"
   },
   {
     "name": "additional information submission date",
-    "key": "additional_info_submission_date"
+    "key": "additional_info_submission_date",
+    "type": "date"
   },
   {
     "name": "drop date",
-    "key": "drop_date"
+    "key": "drop_date",
+    "type": "date"
   },
   {
     "name": "remarks",
-    "key": "remarks"
+    "key": "remarks",
+    "type": "string"
   },
   {
     "name": "file name",
-    "key": "original_file_name"
+    "key": "original_file_name",
+    "type": "string"
   }
 ]

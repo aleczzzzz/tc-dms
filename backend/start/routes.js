@@ -16,6 +16,7 @@ Route.group(() => {
   //Document Collection
   Route.post("document/upload", "DocumentController.upload").middleware("auth");
   Route.post("document/save", "DocumentController.save").middleware("auth");
+  Route.post("document/update", "DocumentController.update").middleware("auth");
   Route.get(
     "document/getDocumentKeys",
     "DocumentController.getDocumentKeys"
@@ -30,6 +31,10 @@ Route.group(() => {
   Route.post(
     "document/downloadFile",
     "DocumentController.downloadFile"
+  ).middleware("auth");
+  Route.post(
+    "document/updateFileName",
+    "DocumentController.updateFileName"
   ).middleware("auth");
 })
   .prefix("api/v1")
