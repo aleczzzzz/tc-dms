@@ -172,9 +172,6 @@ export default {
         qrt: {
           required,
         },
-        remarks: {
-          required,
-        },
       },
     },
   },

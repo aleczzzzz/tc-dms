@@ -367,14 +367,9 @@
           <label class="form-control-label">REMARKS</label>
           <textarea
             type="text"
-            :class="$v.file.remarks.$error ? 'is-invalid' : ''"
             class="form-control"
             rows="4"
-            v-model="$v.file.remarks.$model"
-          />
-          <FormErrorMessage
-            :vData="$v.file.remarks"
-            v-if="$v.file.remarks.$error"
+            v-model="file.remarks"
           />
         </div>
       </div>
@@ -424,10 +419,7 @@ export default {
       },
       qrt: {
         required,
-      },
-      remarks: {
-        required,
-      },
+      }
     },
   },
 

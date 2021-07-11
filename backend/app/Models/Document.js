@@ -20,6 +20,7 @@ class Document extends Model {
       documentInstance.additional_info_submission_date =
         documentInstance.additional_info_submission_date || null;
       documentInstance.drop_date = documentInstance.drop_date || null;
+      documentInstance.remarks = documentInstance.remarks || null;
       documentInstance.boc_day_count = documentInstance.request_date
         ? moment().diff(moment(documentInstance.request_date), "days")
         : 0;

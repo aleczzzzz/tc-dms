@@ -378,12 +378,10 @@
           <label class="form-control-label">REMARKS</label>
           <textarea
             type="text"
-            :class="file.remarks.$error ? 'is-invalid' : ''"
             class="form-control"
             rows="4"
-            v-model="file.remarks.$model"
+            v-model="fileActual.remarks"
           />
-          <FormErrorMessage :vData="file.remarks" v-if="file.remarks.$error" />
         </div>
       </div>
     </div>
