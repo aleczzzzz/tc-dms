@@ -451,9 +451,11 @@ export default {
         })
         .data("datepicker");
 
-      const i = $(this).data("name");
-      const sd = moment(vm.file[i], "MMMM D, YYYY").toDate();
-      dpi.selectDate(sd);
+      if(vm.file[i]) {
+        const i = $(this).data("name");
+        const sd = moment(vm.file[i], "MMMM D, YYYY").toDate();
+        dpi.selectDate(sd);
+      }
       vm.datepicker.push(dpi);
     });
   },
