@@ -1,5 +1,5 @@
-PROJECT_PATH="/var/docker/dms/backend"
-PROJECT_NAME="dms_backend"
+PROJECT_PATH="/var/docker/csd/backend"
+PROJECT_NAME="csd_backend"
 
 cd $PROJECT_PATH
 docker rm -f $PROJECT_NAME
