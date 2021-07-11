@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-sm-4 login-section-wrapper">
           <div class="brand-wrapper">
-            TC-DMS
+            CSD - VIRTUAL LIBRARY
           </div>
           <div class="login-wrapper my-auto">
             <h1 class="login-title">LOG IN</h1>
