@@ -450,10 +450,9 @@ export default {
           },
         })
         .data("datepicker");
-      
+
       const i = $(this).data("name");
-      const sd = vm.file[i] ? moment(vm.file[i], "MMMM D, YYYY").toDate() : new Date();
-      dpi.selectDate(sd);
+      if(vm.file[i]) dpi.selectDate(moment(vm.file[i], "MMMM D, YYYY").toDate());
       vm.datepicker.push(dpi);
     });
   },
