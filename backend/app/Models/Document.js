@@ -21,19 +21,52 @@ class Document extends Model {
         documentInstance.additional_info_submission_date || null;
       documentInstance.drop_date = documentInstance.drop_date || null;
       documentInstance.remarks = documentInstance.remarks || null;
+
       documentInstance.boc_day_count = documentInstance.request_date
         ? moment().diff(moment(documentInstance.request_date), "days")
         : 0;
+
       documentInstance.nosc_day_count = documentInstance.endorse_date
-        ? moment().diff(moment(documentInstance.endorse_date), "days")
+        ? documentInstance.notice_date
+          ? moment(documentInstance.notice_date).diff(
+              moment(documentInstance.endorse_date),
+              "days"
+            )
+          : moment().diff(moment(documentInstance.endorse_date), "days")
         : 0;
+
       documentInstance.draft_day_count = documentInstance.notice_date
-        ? moment().diff(moment(documentInstance.notice_date), "days")
+        ? documentInstance.draft_date
+          ? moment(documentInstance.draft_date).diff(
+              moment(documentInstance.notice_date),
+              "days"
+            )
+          : moment().diff(moment(documentInstance.notice_date), "days")
         : 0;
+
       documentInstance.finalize_day_count = documentInstance.finalize_date
-        ? moment().diff(moment(documentInstance.finalize_date), "days")
+        ? documentInstance.issue_date
+          ? moment(documentInstance.issue_date).diff(
+              moment(documentInstance.finalize_date),
+              "days"
+            )
+          : moment().diff(moment(documentInstance.finalize_date), "days")
         : 0;
+
       documentInstance.additional_info_day_count =
+        documentInstance.additional_info_request_date
+          ? documentInstance.additional_info_submission_date
+            ? moment(documentInstance.additional_info_submission_date).diff(
+                moment(documentInstance.additional_info_request_date),
+                "days"
+              )
+            : moment().diff(
+                moment(documentInstance.additional_info_request_date),
+                "days"
+              )
+          : 0;
+
+      documentInstance.issuance_day_count =
         documentInstance.additional_info_request_date
           ? moment().diff(
               moment(documentInstance.additional_info_request_date),

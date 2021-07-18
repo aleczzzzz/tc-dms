@@ -232,6 +232,7 @@ export default {
     },
 
     clear() {
+      this.search = "";
       this.key = this.keys[0].key;
       this.page = 1;
       this.initSelectPicker();

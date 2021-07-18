@@ -6,7 +6,7 @@ const Role = use("App/Models/Role");
 class RoleSeeder {
   async run() {
     await Database.raw("TRUNCATE TABLE roles RESTART IDENTITY CASCADE;");
-    const roles = ["superadmin", "user"];
+    const roles = ["superadmin", "encoder", "viewer"];
 
     await Role.createMany(roles.map((role) => ({ role })));
   }

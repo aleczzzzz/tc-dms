@@ -33,9 +33,12 @@ class HitsSchema extends Schema {
       table.integer("additional_info_day_count").notNullable().index();
       table.date("additional_info_submission_date").nullable().index();
       table.date("drop_date").nullable().index();
+      table.integer("issuance_day_count").notNullable().index();
       table.text("remarks", "longtext").nullable().index();
       table.string("original_file_name", 255).notNullable().index();
       table.string("directory_file_name", 255).notNullable().index();
+      table.integer("created_by").unsigned().references("id").inTable("users");
+      table.integer("updated_by").unsigned().references("id").inTable("users");
       table.timestamps();
     });
   }

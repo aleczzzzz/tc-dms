@@ -42,6 +42,7 @@
               <button
                 type="button"
                 class="btn btn-success float-right"
+                v-if="session.role.id == 1"
                 @click="updateDocument"
               >
                 UPDATE DOCUMENT
@@ -83,6 +84,7 @@
 <script>
 import resumablejs from "resumablejs";
 import { saveAs } from "file-saver";
+import { mapGetters } from "vuex";
 
 export default {
   data() {
@@ -96,6 +98,12 @@ export default {
       uploadStatus: null,
       popoverInstance: null,
     };
+  },
+
+  computed: {
+    ...mapGetters({
+      session: "auth/getSession",
+    }),
   },
 
   methods: {

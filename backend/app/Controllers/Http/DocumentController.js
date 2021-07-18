@@ -25,7 +25,7 @@ class DocumentController {
     return response.status(200).send("Successfully upload file");
   }
 
-  async save({ request, response }) {
+  async save({ request, response, $session }) {
     const {
       tccNumber,
       rulingType,
@@ -109,7 +109,9 @@ class DocumentController {
         ];
 
         out[snakeCase(key)] = castDatesRack.includes(key)
-          ? moment(request.input(key), "MMMM D, YYYY").toISOString()
+          ? request.input(key)
+            ? moment(request.input(key), "MMMM D, YYYY").format("YYYY-MM-DD")
+            : null
           : request.input(key);
 
         return out;
@@ -117,6 +119,7 @@ class DocumentController {
       {
         original_file_name: fileName,
         directory_file_name: `${uid}.pdf`,
+        created_by: $session.user.id,
       }
     );
 
@@ -129,7 +132,7 @@ class DocumentController {
       .send({ message: "Successfully saved document" });
   }
 
-  async update({ request, response }) {
+  async update({ request, response, $session }) {
     const {
       tccNumber,
       rulingType,
@@ -183,28 +186,37 @@ class DocumentController {
       additionalInfoSubmissionDate,
       dropDate,
       remarks,
-    }).reduce((out, key) => {
-      const castDatesRack = [
-        "recordsDate",
-        "chairDate",
-        "endorseDate",
-        "requestDate",
-        "noticeDate",
-        "draftDate",
-        "finalizeDate",
-        "issueDate",
-        "additionalInfoRequestDate",
-        "additionalInfoSubmissionDate",
-        "dropDate",
-      ];
+    }).reduce(
+      (out, key) => {
+        const castDatesRack = [
+          "recordsDate",
+          "chairDate",
+          "endorseDate",
+          "requestDate",
+          "noticeDate",
+          "draftDate",
+          "finalizeDate",
+          "issueDate",
+          "additionalInfoRequestDate",
+          "additionalInfoSubmissionDate",
+          "dropDate",
+        ];
 
-      out[snakeCase(key)] = castDatesRack.includes(key)
-        ? moment(request.input("document")[key], "MMMM D, YYYY").toISOString()
-        : request.input("document")[key];
+        out[snakeCase(key)] = castDatesRack.includes(key)
+          ? request.input("document")[key]
+            ? moment(request.input("document")[key], "MMMM D, YYYY").format(
+                "YYYY-MM-DD"
+              )
+            : null
+          : request.input("document")[key];
 
-      return out;
-    }, {});
-
+        return out;
+      },
+      {
+        updated_by: $session.user.id,
+      }
+    );
+    console.log(merge);
     document.merge(merge);
 
     await document.save();

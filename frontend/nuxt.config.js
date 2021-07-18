@@ -49,7 +49,6 @@ export default {
     "~/plugins/popover",
     "~/plugins/axios",
     "~/plugins/init",
-    // "~/plugins/validator",
   ],
 
   router: {

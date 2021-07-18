@@ -345,6 +345,8 @@ export default {
           },
         },
       });
+
+      this.chunkCompleted -= 1
     },
   },
 
@@ -394,6 +396,8 @@ export default {
           this.resolveErrors.splice(reIdx, 1);
         }
       }
+
+      this.$v.$touch();
     });
 
     this.resumableJSInstance.on("chunkingComplete", () => {
