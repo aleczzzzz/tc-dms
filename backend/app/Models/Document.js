@@ -66,13 +66,14 @@ class Document extends Model {
               )
           : 0;
 
-      documentInstance.issuance_day_count =
-        documentInstance.additional_info_request_date
-          ? moment().diff(
-              moment(documentInstance.additional_info_request_date),
+      documentInstance.issuance_day_count = documentInstance.issue_date
+        ? documentInstance.endorse_date
+          ? moment(documentInstance.issue_date).diff(
+              moment(documentInstance.endorse_date),
               "days"
             )
-          : 0;
+          : 0
+        : 0;
     });
     this.addTrait("CastDates");
   }

@@ -382,11 +382,24 @@
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
-          <label class="form-control-label">ADDITIONAL INFORMATION SUBMITTED DAY COUNT</label>
+          <label class="form-control-label"
+            >ADDITIONAL INFORMATION SUBMITTED DAY COUNT</label
+          >
           <input
             type="text"
             class="form-control"
             :value="file.additionalInfoDayCount"
+            readonly="true"
+          />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label class="form-control-label">ISSUANCE DAY COUNT</label>
+          <input
+            type="text"
+            class="form-control"
+            :value="file.issuanceDayCount"
             readonly="true"
           />
         </div>

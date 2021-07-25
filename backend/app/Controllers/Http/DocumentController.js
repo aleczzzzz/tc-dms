@@ -216,7 +216,6 @@ class DocumentController {
         updated_by: $session.user.id,
       }
     );
-    console.log(merge);
     document.merge(merge);
 
     await document.save();
