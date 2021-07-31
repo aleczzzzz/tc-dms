@@ -93,7 +93,7 @@
             type="text"
             :class="$v.file.content.$error ? 'is-invalid' : ''"
             class="form-control"
-            rows="4"
+            rows="10"
             v-model="$v.file.content.$model"
           />
           <FormErrorMessage

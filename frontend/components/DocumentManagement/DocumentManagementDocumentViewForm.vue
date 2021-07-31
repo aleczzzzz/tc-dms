@@ -80,7 +80,7 @@
           <textarea
             type="text"
             class="form-control"
-            rows="4"
+            rows="10"
             :value="file.content"
             readonly="true"
           />

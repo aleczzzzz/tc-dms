@@ -97,7 +97,7 @@
             type="text"
             :class="file.content.$error ? 'is-invalid' : ''"
             class="form-control"
-            rows="4"
+            rows="10"
             v-model="file.content.$model"
           />
           <FormErrorMessage :vData="file.content" v-if="file.content.$error" />
