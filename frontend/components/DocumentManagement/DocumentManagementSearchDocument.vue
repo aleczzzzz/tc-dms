@@ -209,10 +209,7 @@ export default {
     },
 
     async viewDocument(id) {
-      let route = this.$router.resolve({
-        path: `/DocumentManagement/Document/${id}`,
-      });
-      window.open(route.href, "_blank");
+      this.$router.push(`/DocumentManagement/Document/${id}`);
     },
 
     searchDocument() {

@@ -2,7 +2,7 @@ import { capitalCase } from "capital-case";
 
 export default function({ route, store, redirect, $config }) {
   const isLogged = store.state.auth.session !== null;
-  console.log(route);
+
   if (route.matched.length == 0) {
     redirect("/404");
     return;

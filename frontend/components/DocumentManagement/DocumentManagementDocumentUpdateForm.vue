@@ -88,7 +88,7 @@
     <div class="row">
       <div class="col-md-12">
         <div class="form-group">
-          <label class="form-control-label">CONTENT</label>
+          <label class="form-control-label">DESCRIPTION OF GOOD</label>
           <textarea
             type="text"
             :class="$v.file.content.$error ? 'is-invalid' : ''"
@@ -123,7 +123,7 @@
 
       <div class="col-md-6">
         <div class="form-group">
-          <label class="form-control-label">APPLICANT NAME</label>
+          <label class="form-control-label">COMPANY REPRESENTATIVE</label>
           <input
             type="text"
             :class="$v.file.applicantName.$error ? 'is-invalid' : ''"
@@ -157,7 +157,7 @@
 
       <div class="col-md-6">
         <div class="form-group">
-          <label class="form-control-label">APPLICANT NUMBER</label>
+          <label class="form-control-label">CONTACT NUMBER</label>
           <input
             type="text"
             :class="$v.file.applicantNumber.$error ? 'is-invalid' : ''"
@@ -206,7 +206,7 @@
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
-          <label class="form-control-label">RECORDS DATE</label>
+          <label class="form-control-label">DATE FROM RECORDS</label>
           <input
             type="text"
             class="form-control form-datepicker"
@@ -219,7 +219,7 @@
 
       <div class="col-md-6">
         <div class="form-group">
-          <label class="form-control-label">CHAIR DATE</label>
+          <label class="form-control-label">DATE FROM CHAIR</label>
           <input
             type="text"
             class="form-control form-datepicker"
@@ -234,7 +234,7 @@
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
-          <label class="form-control-label">ENDORSE DATE</label>
+          <label class="form-control-label">DATE ENDORSED TO TS</label>
           <input
             type="text"
             class="form-control form-datepicker"
@@ -247,7 +247,7 @@
 
       <div class="col-md-6">
         <div class="form-group">
-          <label class="form-control-label">REQUEST DATE</label>
+          <label class="form-control-label">DATE REQUEST (BOC)</label>
           <input
             type="text"
             class="form-control form-datepicker"
@@ -262,7 +262,7 @@
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
-          <label class="form-control-label">NOTICE DATE</label>
+          <label class="form-control-label">DATE NSC SENT</label>
           <input
             type="text"
             class="form-control form-datepicker"
@@ -275,7 +275,7 @@
 
       <div class="col-md-6">
         <div class="form-group">
-          <label class="form-control-label">DRAFT DATE</label>
+          <label class="form-control-label">DATE DRAFTED</label>
           <input
             type="text"
             class="form-control form-datepicker"
@@ -290,7 +290,7 @@
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
-          <label class="form-control-label">FINALIZE DATE</label>
+          <label class="form-control-label">DATE FINALIZED</label>
           <input
             type="text"
             class="form-control form-datepicker"
@@ -303,7 +303,7 @@
 
       <div class="col-md-6">
         <div class="form-group">
-          <label class="form-control-label">ISSUE DATE</label>
+          <label class="form-control-label">DATE ISSUED</label>
           <input
             type="text"
             class="form-control form-datepicker"
@@ -319,7 +319,7 @@
       <div class="col-md-6">
         <div class="form-group">
           <label class="form-control-label"
-            >ADDITIONAL INFORMATION REQUEST DATE</label
+            >DATE ADDTL INFO REQUEST INFO</label
           >
           <input
             type="text"
@@ -334,7 +334,7 @@
       <div class="col-md-6">
         <div class="form-group">
           <label class="form-control-label"
-            >ADDITIONAL INFORMATION SUBMISSION DATE</label
+            >DATE ADDTL INFO INFO RECEIVED</label
           >
           <input
             type="text"
@@ -350,7 +350,7 @@
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
-          <label class="form-control-label">DROP DATE</label>
+          <label class="form-control-label">DATE DROPPED</label>
           <input
             type="text"
             :class="`form-datepicker`"
