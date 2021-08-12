@@ -84,7 +84,7 @@
             <th scope="col">TCC NUMBER</th>
             <th scope="col">NAME OF ARTICLE</th>
             <th scope="col">FILE NAME</th>
-            <th scope="col">APPLICANT COMPANY NAME</th>
+            <th scope="col">COMPANY REPRESENTATIVE</th>
             <th scope="col">APPLICANT NAME</th>
             <th scope="col">REMARKS</th>
             <th scope="col" class="text-center">ACTION</th>
