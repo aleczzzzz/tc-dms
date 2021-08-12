@@ -20,7 +20,7 @@
     "type": "string"
   },
   {
-    "name": "content",
+    "name": "description of good",
     "key": "content",
     "type": "string"
   },
@@ -30,7 +30,7 @@
     "type": "string"
   },
   {
-    "name": "applicant name",
+    "name": "company representative",
     "key": "applicant_name",
     "type": "string"
   },
@@ -40,7 +40,7 @@
     "type": "string"
   },
   {
-    "name": "applicant number",
+    "name": "contact number",
     "key": "applicant_number",
     "type": "string"
   },
@@ -55,57 +55,57 @@
     "type": "string"
   },
   {
-    "name": "records date",
+    "name": "date from records",
     "key": "records_date",
     "type": "date"
   },
   {
-    "name": "chair date",
+    "name": "date from chair",
     "key": "chair_date",
     "type": "date"
   },
   {
-    "name": "endorse date",
+    "name": "date endorsed to ts",
     "key": "endorse_date",
     "type": "date"
   },
   {
-    "name": "request date",
+    "name": "date request (boc)",
     "key": "request_date",
     "type": "date"
   },
   {
-    "name": "notice date",
+    "name": "date nsc sent",
     "key": "notice_date",
     "type": "date"
   },
   {
-    "name": "draft date",
+    "name": "date drafted",
     "key": "draft_date",
     "type": "date"
   },
   {
-    "name": "finalize date",
+    "name": "date finalized",
     "key": "finalize_date",
     "type": "date"
   },
   {
-    "name": "issue date",
+    "name": "date issued",
     "key": "issue_date",
     "type": "date"
   },
   {
-    "name": "additional information request date",
+    "name": "date addtl info request info",
     "key": "additional_info_request_date",
     "type": "date"
   },
   {
-    "name": "additional information submission date",
+    "name": "date addtl info info received",
     "key": "additional_info_submission_date",
     "type": "date"
   },
   {
-    "name": "drop date",
+    "name": "date dropped",
     "key": "drop_date",
     "type": "date"
   },

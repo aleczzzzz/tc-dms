@@ -17,6 +17,7 @@ Route.group(() => {
   Route.post("document/upload", "DocumentController.upload").middleware("auth");
   Route.post("document/save", "DocumentController.save").middleware("auth");
   Route.post("document/update", "DocumentController.update").middleware("auth");
+  Route.post("document/delete", "DocumentController.delete").middleware("auth");
   Route.get(
     "document/getDocumentKeys",
     "DocumentController.getDocumentKeys"

@@ -343,6 +343,17 @@ class DocumentController {
       message: "Successfully updated filename.",
     });
   }
+
+  async delete({ request, response }) {
+    const id = request.input("id");
+    const document = await Document.find(id);
+    await Drive.delete(`document/${document.directory_file_name}`);
+    await document.delete();
+
+    return response.status(200).send({
+      message: "Successfully deleted document.",
+    });
+  }
 }
 
 module.exports = DocumentController;

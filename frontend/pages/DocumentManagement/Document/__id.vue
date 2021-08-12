@@ -31,11 +31,7 @@
               class="col-md-12"
               v-if="!isLoading && !isUpdate && Object.keys(document).length > 0"
             >
-              <button
-                type="button"
-                class="btn btn-info"
-                @click="downloadFile"
-              >
+              <button type="button" class="btn btn-info" @click="downloadFile">
                 DOWNLOAD FILE
               </button>
 
@@ -46,6 +42,15 @@
                 @click="updateDocument"
               >
                 UPDATE DOCUMENT
+              </button>
+
+              <button
+                type="button"
+                class="btn btn-danger float-right mr-4"
+                v-if="session.role.id == 1"
+                @click="deleteDocument"
+              >
+                DELETE DOCUMENT
               </button>
             </div>
 
@@ -107,6 +112,57 @@ export default {
   },
 
   methods: {
+    deleteDocument() {
+      const vi = this;
+
+      this.$popover.show({
+        title: "DELETE DOCUMENT",
+        content: "",
+        buttons: {
+          delete: {
+            text: "delete",
+            btnClass: "btn-success",
+            keys: ["enter"],
+            action() {
+              const jc = this;
+              jc.$$delete.hide();
+              jc.$$cancel.hide();
+
+              jc.setIcon(vi.$popover.getIcon("loading"));
+              jc.setContent("PROCESSING");
+
+              vi.$store
+                .dispatch("document/delete", {
+                  id: vi.document.id,
+                })
+                .then(({ status, message }) => {
+                  if (status == 200) {
+                    vi.$router.push("/DocumentManagement");
+                  }
+                  jc.$$close.show();
+                  jc.setIcon(
+                    vi.$popover.getIcon(status == 200 ? "success" : "warning")
+                  );
+                  jc.setContent(message);
+                });
+
+              return false;
+            },
+          },
+          cancel: {
+            text: "cancel",
+            btnClass: "btn-danger",
+            keys: ["esc"],
+          },
+          close: {
+            isHidden: true,
+            text: "close",
+            btnClass: "btn-danger",
+          },
+        },
+      });
+    },
+
     updateDocument() {
       this.isUpdate = !this.isUpdate;
     },

@@ -9,6 +9,14 @@ export const actions = {
     return $data;
   },
 
+  async delete(ctx, payload) {
+    const [err, data] = await to(this.$axios.post("/document/delete", payload));
+
+    const $data = this.$serializer.cleanResponse(err ? err.response : data);
+
+    return $data;
+  },
+
   async update(ctx, payload) {
     const [err, data] = await to(this.$axios.post("/document/update", payload));
 

@@ -7,6 +7,7 @@
   "document-upload": "Upload document/s",
   "document-save": "Save document/s",
   "document-update": "Update document",
+  "document-delete": "Delete document",
   "document-getdocumentkeys": "Get document keys",
   "document-getdocuments": "Get documents",
   "document-getdocument": "Get document",
