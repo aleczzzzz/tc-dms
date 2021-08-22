@@ -32,7 +32,10 @@
                   class="btn btn-success mb-4"
                   @click="uploadDocument"
                   :disabled="
-                    isUploading || !isChunkComplete || files.length == 0
+                    $v.$invalid ||
+                      isUploading ||
+                      !isChunkComplete ||
+                      files.length == 0
                   "
                 >
                   UPLOAD FILES
@@ -67,7 +70,10 @@
                         :key="key"
                       >
                         <div
-                          :class="{ 'bg-red': file.$invalid, 'bg-green': !file.$invalid }"
+                          :class="{
+                            'bg-red': file.$invalid,
+                            'bg-green': !file.$invalid,
+                          }"
                           class="card-header"
                           data-toggle="collapse"
                           :data-target="`#collapse${key}`"
@@ -95,8 +101,8 @@
                           <div class="card-body">
                             <DocumentManagementUploadDocumentForm
                               :file="file"
-                              :name="files[key].file.name"
-                              :size="files[key].file.size"
+                              :fileActual="files[key]"
+                              :formKey="key"
                               :key="`UDF-${key}`"
                             />
                           </div>
@@ -142,13 +148,7 @@ export default {
         tccNumber: {
           required,
         },
-        rullingType: {
-          required,
-        },
         nameOfArticle: {
-          required,
-        },
-        ahtnCode: {
           required,
         },
         content: {
@@ -170,42 +170,6 @@ export default {
           required,
         },
         qrt: {
-          required,
-        },
-        recordsDate: {
-          required,
-        },
-        chairDate: {
-          required,
-        },
-        endorseDate: {
-          required,
-        },
-        requestDate: {
-          required,
-        },
-        noticeDate: {
-          required,
-        },
-        draftDate: {
-          required,
-        },
-        finalizeDate: {
-          required,
-        },
-        issueDate: {
-          required,
-        },
-        additionalInfoRequestDate: {
-          required,
-        },
-        additionalInfoSubmissionDate: {
-          required,
-        },
-        dropDate: {
-          required,
-        },
-        remarks: {
           required,
         },
       },
@@ -276,7 +240,7 @@ export default {
       return {
         file,
         tccNumber: "",
-        rullingType: "",
+        rulingType: "DR",
         nameOfArticle: "",
         ahtnCode: "",
         content: "",
@@ -341,7 +305,9 @@ export default {
                                 <div class="progress-bar bg-success" style="width: 0%; color: #000; font-weight: bold;">0</div>
                                </div>`);
 
-              vi.resumableJSInstance.upload();
+              vi.$store.dispatch("auth/reconnect").then(({ status }) => {
+                status == 200 && vi.resumableJSInstance.upload();
+              });
               return false;
             },
           },
@@ -379,10 +345,24 @@ export default {
           },
         },
       });
+
+      this.chunkCompleted -= 1
     },
   },
 
   created() {
+    $(document).on("shown.bs.collapse", ".collapse", function() {
+      const parent = $(this).parent();
+      const index = $(parent).index();
+
+      $(".dropzone").animate(
+        {
+          scrollTop: 0 + index * 70,
+        },
+        100
+      );
+    });
+
     const opts = {
       target: `${this.$config.apiURL}/document/upload`,
       chunkSize: 1 * 1024 * 1024,
@@ -416,6 +396,8 @@ export default {
           this.resolveErrors.splice(reIdx, 1);
         }
       }
+
+      this.$v.$touch();
     });
 
     this.resumableJSInstance.on("chunkingComplete", () => {

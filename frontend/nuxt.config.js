@@ -28,7 +28,7 @@ export default {
 
     link: [
       { rel: "stylesheet", href: `/${css}` },
-      // { rel: "icon", type: "image/x-icon", href: "/images/logo.png" },
+      { rel: "icon", type: "image/x-icon", href: "/img/csd-logo.png" },
     ],
 
     script: [{ src: `/${js}`, body: true }],
@@ -49,7 +49,6 @@ export default {
     "~/plugins/popover",
     "~/plugins/axios",
     "~/plugins/init",
-    // "~/plugins/validator",
   ],
 
   router: {

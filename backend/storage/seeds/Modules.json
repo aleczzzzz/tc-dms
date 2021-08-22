@@ -1,26 +1,5 @@
 [
   {
-    "module_code": 100,
-    "module": "Login",
-    "platform": "backend"
-  },
-  {
-    "module_code": 101,
-    "module": "Log Out",
-    "platform": "backend"
-  },
-  {
-    "module_code": 102,
-    "module": "Check Session",
-    "platform": "backend"
-  },
-  {
-    "module_code": 103,
-    "module": "Reconnect",
-    "platform": "backend"
-  },
-
-  {
     "module_code": 200,
     "module": "Document Management",
     "platform": "frontend"
@@ -40,7 +19,22 @@
     "module": "Save Document",
     "platform": "backend"
   },
-  
+  {
+    "module_code": 204,
+    "module": "Document",
+    "platform": "frontend"
+  },
+  {
+    "module_code": 205,
+    "module": "Get Document",
+    "platform": "backend"
+  },
+  {
+    "module_code": 206,
+    "module": "Get Documents",
+    "platform": "backend"
+  },
+
   {
     "module_code": 300,
     "module": "Profile",

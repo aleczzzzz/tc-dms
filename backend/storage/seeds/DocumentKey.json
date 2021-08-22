@@ -1,30 +1,122 @@
 [
   {
-    "name": "File Name",
-    "key": "original_file_name"
+    "name": "tcc number",
+    "key": "tcc_number",
+    "type": "string"
   },
   {
-    "name": "Reference Number",
-    "key": "reference_number"
+    "name": "ruling type",
+    "key": "ruling_type",
+    "type": "string"
   },
   {
-    "name": "Subject Article",
-    "key": "subject_article"
+    "name": "name of article",
+    "key": "name_of_article",
+    "type": "string"
   },
   {
-    "name": "AHTN Code",
-    "key": "ahtn_code"
+    "name": "ahtn code",
+    "key": "ahtn_code",
+    "type": "string"
   },
   {
-    "name": "Sector",
-    "key": "sector"
+    "name": "description of good",
+    "key": "content",
+    "type": "string"
   },
   {
-    "name": "Chapter",
-    "key": "chapter"
+    "name": "applicant company name",
+    "key": "applicant_company_name",
+    "type": "string"
   },
   {
-    "name": "Product Type",
-    "key": "product_type"
+    "name": "company representative",
+    "key": "applicant_name",
+    "type": "string"
+  },
+  {
+    "name": "applicant email",
+    "key": "applicant_email",
+    "type": "string"
+  },
+  {
+    "name": "contact number",
+    "key": "applicant_number",
+    "type": "string"
+  },
+  {
+    "name": "assigned to",
+    "key": "assigned_to",
+    "type": "string"
+  },
+  {
+    "name": "qrt",
+    "key": "qrt",
+    "type": "string"
+  },
+  {
+    "name": "date from records",
+    "key": "records_date",
+    "type": "date"
+  },
+  {
+    "name": "date from chair",
+    "key": "chair_date",
+    "type": "date"
+  },
+  {
+    "name": "date endorsed to ts",
+    "key": "endorse_date",
+    "type": "date"
+  },
+  {
+    "name": "date request (boc)",
+    "key": "request_date",
+    "type": "date"
+  },
+  {
+    "name": "date nsc sent",
+    "key": "notice_date",
+    "type": "date"
+  },
+  {
+    "name": "date drafted",
+    "key": "draft_date",
+    "type": "date"
+  },
+  {
+    "name": "date finalized",
+    "key": "finalize_date",
+    "type": "date"
+  },
+  {
+    "name": "date issued",
+    "key": "issue_date",
+    "type": "date"
+  },
+  {
+    "name": "date addtl info request info",
+    "key": "additional_info_request_date",
+    "type": "date"
+  },
+  {
+    "name": "date addtl info info received",
+    "key": "additional_info_submission_date",
+    "type": "date"
+  },
+  {
+    "name": "date dropped",
+    "key": "drop_date",
+    "type": "date"
+  },
+  {
+    "name": "remarks",
+    "key": "remarks",
+    "type": "string"
+  },
+  {
+    "name": "file name",
+    "key": "original_file_name",
+    "type": "string"
   }
 ]

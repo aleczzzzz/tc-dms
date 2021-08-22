@@ -11,12 +11,12 @@ export default function({ route, store, redirect, $config }) {
   const pageName = route.name.split("-")[route.matched.length - 1];
   document.title = `${$config.name} | ${capitalCase(pageName)}`;
 
-  if (route.path == "/404") return;
+  if (route.name == "404") return;
 
   route.path.toLowerCase() == "/" &&
     redirect(isLogged ? "/Dashboard" : "/Login");
-  route.path.toLowerCase() != "/login" && !isLogged && redirect("/Login");
-  route.path.toLowerCase() == "/login" && isLogged && redirect("/Dashboard");
+  route.name != "Login" && !isLogged && redirect("/Login");
+  route.name == "Login" && isLogged && redirect("/Dashboard");
 
   if (isLogged) {
     const module = route.meta[0].module;

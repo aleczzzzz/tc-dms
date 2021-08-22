@@ -1,43 +1,6 @@
 [
   {
     "role_id": 1,
-    "module_code": 100
-  },
-  {
-    "role_id": 2,
-    "module_code": 100
-  },
-  {
-    "role_id": 1,
-    "module_code": 101
-  },
-  {
-    "role_id": 2,
-    "module_code": 101
-  },
-  {
-    "role_id": 1,
-    "module_code": 102
-  },
-  {
-    "role_id": 2,
-    "module_code": 102
-  },
-  {
-    "role_id": 1,
-    "module_code": 103
-  },
-  {
-    "role_id": 2,
-    "module_code": 103
-  },
-
-  {
-    "role_id": 1,
-    "module_code": 200
-  },
-  {
-    "role_id": 2,
     "module_code": 200
   },
   {
@@ -52,13 +15,74 @@
     "role_id": 1,
     "module_code": 203
   },
-
+  {
+    "role_id": 1,
+    "module_code": 204
+  },
+  {
+    "role_id": 1,
+    "module_code": 205
+  },
+  {
+    "role_id": 1,
+    "module_code": 206
+  },
   {
     "role_id": 1,
     "module_code": 300
   },
+
   {
     "role_id": 2,
+    "module_code": 200
+  },
+  {
+    "role_id": 2,
+    "module_code": 201
+  },
+  {
+    "role_id": 2,
+    "module_code": 202
+  },
+  {
+    "role_id": 2,
+    "module_code": 203
+  },
+  {
+    "role_id": 2,
+    "module_code": 204
+  },
+  {
+    "role_id": 2,
+    "module_code": 205
+  },
+  {
+    "role_id": 2,
+    "module_code": 206
+  },
+  {
+    "role_id": 2,
+    "module_code": 300
+  },
+
+  {
+    "role_id": 3,
+    "module_code": 200
+  },
+  {
+    "role_id": 3,
+    "module_code": 204
+  },
+  {
+    "role_id": 3,
+    "module_code": 205
+  },
+  {
+    "role_id": 3,
+    "module_code": 206
+  },
+  {
+    "role_id": 3,
     "module_code": 300
   }
 ]

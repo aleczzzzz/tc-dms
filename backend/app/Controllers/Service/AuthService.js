@@ -16,7 +16,7 @@ class AuthService {
     return token;
   }
 
-  static async getSession(userCollection, token) {
+  static async getSession(userCollection, token, platform) {
     const { exp } = decode(token);
 
     const role = await userCollection.role().setVisible(["id", "role"]).fetch();
@@ -24,7 +24,7 @@ class AuthService {
       .modules()
       .where({
         status: 1,
-        platform: "frontend",
+        platform,
       })
       .fetch();
 

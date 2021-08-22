@@ -3,7 +3,7 @@ const User = use("App/Models/User");
 const Hash = use("Hash");
 const Config = use("Config");
 
-const { generateToken, getSession } = use(
+const { generateToken, getSession, getUserInstance } = use(
   "App/Controllers/Service/AuthService"
 );
 
@@ -20,7 +20,7 @@ class AuthController {
       return response.status(400).send({ message: "Password is incorrect." });
 
     const token = await generateToken(user.toJSON());
-    const body = await getSession(user, token);
+    const body = await getSession(user, token, "frontend");
 
     response.cookie("token", token, this.cookieProperties);
 
@@ -30,16 +30,19 @@ class AuthController {
     });
   }
 
-  async getSession({ response, $session }) {
+  async getSession({ request, response }) {
+    const token = request.cookie("token");
+    const user = await getUserInstance(token);
+    const data = await getSession(user, token, "frontend");
     return response.status(200).send({
       message: "Successfully fetched users.",
-      data: $session,
+      data,
     });
   }
 
   async reconnect({ response, user }) {
     const token = await generateToken(user.toJSON());
-    const body = await getSession(user, token);
+    const body = await getSession(user, token, "frontend");
 
     response.cookie("token", token, this.cookieProperties);
 

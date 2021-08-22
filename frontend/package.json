@@ -12,11 +12,13 @@
         "await-to-js": "^2.1.1",
         "capital-case": "^1.0.4",
         "change-case": "^4.1.2",
+        "file-saver": "^2.0.5",
         "filesize": "^6.3.0",
         "moment": "^2.29.1",
         "no-case": "^3.0.4",
         "nuxt": "^2.14.7",
         "resumablejs": "^1.1.0",
+        "vuejs-paginate": "^2.1.0",
         "vuelidate": "^0.7.6"
     },
     "devDependencies": {

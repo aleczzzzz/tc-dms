@@ -116,7 +116,7 @@ export default {
 }
 
 .f25 {
-  font-size: 35px;
+  font-size: 13px;
 }
 
 .nav-link span {

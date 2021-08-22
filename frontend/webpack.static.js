@@ -14,6 +14,7 @@ const scripts = [
   "assets/js/jquery-confirm.min.js",
   "assets/js/datepicker.min.js",
   "assets/js/i18n/datepicker.en.js",
+  "assets/js/bootstrap-select.min.js",
   "assets/js/template.js",
 ];
 
@@ -23,6 +24,7 @@ const styles = [
   "assets/css/material.css",
   "assets/css/jquery-confirm.min.css",
   "assets/css/datepicker.min.css",
+  "assets/css/bootstrap-select.min.css",
   "assets/css/template.css",
   "assets/css/404.css",
 ];
