@@ -5,8 +5,6 @@
         <div class="col-sm-4 login-section-wrapper">
           <div class="brand-wrapper text-center">
             <img src="/img/csd-logo.png" class="login-logo" />
-            <br />
-            CSD VIRTUAL LIBRARY
           </div>
           <div class="login-wrapper my-auto">
             <h1 class="login-title">LOG IN</h1>
@@ -220,7 +218,7 @@
   }
 
   img.login-logo {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
   }
 </style>
