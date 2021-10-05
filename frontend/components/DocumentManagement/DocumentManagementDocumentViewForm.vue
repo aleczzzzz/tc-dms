@@ -286,7 +286,7 @@
         <div class="col-md-6">
           <div class="form-group">
             <label class="form-control-label"
-              >DATE ADDTL INFO REQUEST INFO</label
+              >DATE ADDTL INFO REQUEST</label
             >
             <input
               type="text"
@@ -300,7 +300,7 @@
         <div class="col-md-6">
           <div class="form-group">
             <label class="form-control-label"
-              >DATE ADDTL INFO INFO RECEIVED</label
+              >DATE ADDTL INFO RECEIVED</label
             >
             <input
               type="text"

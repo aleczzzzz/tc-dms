@@ -95,12 +95,12 @@
     "type": "date"
   },
   {
-    "name": "date addtl info request info",
+    "name": "date addtl info request",
     "key": "additional_info_request_date",
     "type": "date"
   },
   {
-    "name": "date addtl info info received",
+    "name": "date addtl info received",
     "key": "additional_info_submission_date",
     "type": "date"
   },
